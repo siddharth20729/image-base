@@ -1,6 +1,8 @@
 Image Base
 ==========
 
+[![Circle CI](https://circleci.com/gh/xjdr/image-base.svg?style=svg)](https://circleci.com/gh/xjdr/image-base)
+
 This is a template to create amazon AMIs and provision them with ansible.
 
 ```bash
