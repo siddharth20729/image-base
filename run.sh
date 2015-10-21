@@ -9,7 +9,8 @@ export ROLE=$(if [ $MASTER_BUILD ]; then echo ${NAME}; else echo ${NAME}Test; fi
 export GIT_SHA=$CIRCLE_SHA1
 export GIT_DESCRIBE=$(git describe --always --tags)
 export AMI_REGION="${AMI_REGION-us-west-1}"
-export SOURCE_AMI="${SOURCE_AMI-$(aws ec2 describe-images --region $AMI_REGION --filter 'Name=tag:Role,Values=BaseImage' | jq -r '.Images | sort_by(.CreationDate) | reverse | .[0].ImageId')}"
+#export SOURCE_AMI="${SOURCE_AMI-$(aws ec2 describe-images --region $AMI_REGION --filter 'Name=tag:Role,Values=BaseImage' | jq -r '.Images | sort_by(.CreationDate) | reverse | .[0].ImageId')}"
+export SOURCE_AMI=ami-6bcfc42e
 
 echo NAME: $NAME
 echo MASTER_BUILD: $MASTER_BUILD
