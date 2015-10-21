@@ -2,7 +2,7 @@
   "variables": {
     "git_sha": "{{env `GIT_SHA`}}",
     "source_ami": "{{env `SOURCE_AMI`}}",
-    "ssh_username": "admin",
+    "ssh_username": "centos",
     "region": "{{env `AMI_REGION`}}",
     "ami_regions": "{{env `AMI_REGIONS`}}",
     "instance_type": "m3.2xlarge",
@@ -14,6 +14,7 @@
   "builders": [
     {
       "type": "amazon-ebs",
+      "ssh_pty" : true,
       "source_ami": "{{ user `source_ami` }}",
       "tags": {
         "GIT_SHA": "{{ user `git_sha` }}",
@@ -37,6 +38,13 @@
     }
   ],
   "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "ansible/scripts/epel.sh",
+        "ansible/scripts/ansible.sh"
+      ]
+    },
     {
       "type": "ansible-local",
       "playbook_file": "ansible/playbook.yml"
