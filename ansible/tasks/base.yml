@@ -1,0 +1,5 @@
+- name: Base | Install Base Components
+  yum: name={{item}} state=present
+  with_items:
+      - tmux
+      - git
