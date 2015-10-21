@@ -8,9 +8,3 @@
   - shell: iptables -I OUTPUT 1 -j ACCEPT
   - include: tasks/base.yml
   - include: tasks/java.yml
-  # - name: Java | Install base components
-  #   yum: name={{item}} state=present
-  #   with_items:
-  #     - java-1.8.0-openjdk-devel
-  #     - tmux
-  #     - git
