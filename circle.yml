@@ -10,8 +10,3 @@ test:
   override:
   - ./run:
       timeout: 3600 # one hour
-experimental:
-  notify:
-    branches:
-      only:
-        - master
