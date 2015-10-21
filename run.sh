@@ -2,7 +2,8 @@
 
 set -ef -o pipefail
 
-export NAME=$(cat NAME)
+#export NAME=$(cat NAME)
+export NAME=CircleCi
 export MASTER_BUILD=$(test -z $CI_PULL_REQUEST && [[ $CIRCLE_BRANCH == 'master' ]] && echo 'true')
 export AMI_REGIONS=$(if [ $MASTER_BUILD ]; then echo 'ap-northeast-1,ap-southeast-1,ap-southeast-2,eu-central-1,eu-west-1,sa-east-1,us-east-1,us-west-1,us-west-2'; fi)
 export ROLE=$(if [ $MASTER_BUILD ]; then echo ${NAME}; else echo ${NAME}Test; fi)

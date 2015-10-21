@@ -26,7 +26,6 @@
       "ami_regions": "{{ user `ami_regions` }}",
       "ami_name": "{{ user `ami_name` }}",
       "instance_type": "{{ user `instance_type` }}",
-      "iam_instance_profile": "runtime",
       "ami_block_device_mappings": [
         {
           "device_name": "sdb",
